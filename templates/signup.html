@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+<head>
+ {% block content %}
+ <script>
+  var testdiv = $("#testdiv");
+  $("form").keydown( function(){
+    var ME = $(this);
+          //Manual Way
+          //var px = 6.5;
+          //var txtlength = ME.val().length;
+          //$(this).css({width: txtlength * px });
+          
+         testdiv.html( ME.val() + "--"); //-- for padding
+         var txtlength = testdiv.width();
+         $(this).css({width: txtlength  }); 
+       });
+  
+     </script>
+
+   </head>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <style>
+
+   body {font-family: Arial, Helvetica, sans-serif;}
+   td {border: none}
+
+   tab {
+    padding-left : 0px  
+  }
+  tab1 {
+    padding-left:30px
+  }
+  tab2 {
+    padding-left:55px
+  }
+  tab3 {
+    padding-left:32px
+  }
+  tab4 {
+    padding-left:20px;
+  }
+  tab5 {
+    padding-left:35px;
+  }
+  .paddingTop {
+    padding-top:2em;
+  }
+  .paddingTop1 {
+    padding-top:80px;
+  }
+  .paddingTop2 {
+    padding-top:30px;
+  }
+  .paddingleft {
+    padding-left:60px;
+  }
+
+
+  .ribbon1 {
+   font-size: 10px;
+   
+
+   width: 100%;
+   
+   
+   background: #689f38   ;
+   color: #fff;
+   text-align: center;
+   padding-top: 3em;
+ }
+
+ form{
+  border: 1px solid;
+  border-color: #000000;
+  box-shadow: 10px 10px 5px #212121;
+  padding:40px;
+  width:300px;
+  min-height:410px;
+  background:rgba(0,0,0,0.75);	
+  margin:0 auto;
+  position: absolute;               
+  top: 50%;
+  left:50%;                         
+  transform: translate(-50%, -50%);
+  
+}
+body, html {
+  height: 100%;
+  margin: 0;
+  color:#ffffff;
+}
+.bg {
+ 
+  background-image: url('{% static "p32.jpg"%}');
+  height: 100%;
+  overflow: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+button {
+  background-color: #B3B6B7;
+  color: black;
+  padding: 7px 20px;
+  margin: 0px ;
+  border: 1px solid #ccc;
+  cursor: pointer;	
+  width: 110px;
+  border-radius: 6px;
+}
+
+input {
+  width:298px;
+  padding: 5px 10px;
+  margin: 0px 0;
+  display: inline-block;
+  border: 2px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 6px
+}    
+
+</style>
+<div class="bg">
+  <body>
+    
+   <div class="paddingTop2"></div>
+   <div class="paddingTop">
+     <center><h><font size='6'>Sign Up</font></h></center>
+     <span>
+       <form action="" method="post">
+         {% csrf_token %}
+         
+         
+         <p>Please fill in this form to create an account.</p>
+         
+         
+
+         {% csrf_token %}
+         {% for field in form %}
+         <p>
+          {{ field.label_tag }}<br>
+          {{ field }}
+          {% if field.help_text %}
+          <small style="color: grey">{{ field.help_text|safe }}</small>
+          {% endif %}
+          {% for error in field.errors %}
+          <p style="color: red">{{ error }}</p>
+          {% endfor %}
+        </p>
+        {% endfor %}
+        
+        
+        <input type="reset" class="button" size="3"style=" background-color: #B3B6B7;
+        color: black;
+        padding: 7px 20px;
+        margin: 0px ;
+        border: 1px solid #ccc;
+        cursor: pointer;
+        width: 110px;
+        border-radius: 6px;" value="Cancel	">
+      </button>
+      <tab4>
+        
+        <input type="submit" style=" background-color: #B3B6B7;
+        color: black;
+        padding: 7px 20px;
+        margin: 0px ;
+        border: 1px solid #ccc;
+        cursor: pointer;
+        width: 110px;
+        border-radius: 6px;" value="Sign Up"">
+      </tab4>
+      <br>
+      <br>
+      <br> <font size="3">Already have an account?</font>
+      <a href="index.html" style="border-bottom: 1px solid white"> <font color="ffffff">Sign In</font></a>
+
+      
+      
+      
+    </form>
+  </span>
+</div>
+</body>
+</div>   
+{% endblock %}
+
+</html>

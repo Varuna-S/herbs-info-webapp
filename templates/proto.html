@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Simulating User-Generated Events In jQuery</title>
+    <style type="text/css">
+        #more-info {
+            background-color: #F0F0F0 ;
+            border: 1px solid #CCCCCC ;
+            display: none ;
+            padding: 15px 15px 15px 15px ;
+            width: 400px ;
+            }
+    </style>
+    <script type="text/javascript" src="../jquery-1.4.js"></script>
+    <script type="text/javascript">
+        // When the DOM is ready, initialize scripts.
+        jQuery(function( $ ){
+            // Get references to our links.
+            var toggleLink = $( "#toggle" );
+            var closeLink = $( "#close" );
+            // Get a reference to our more-info container.
+            var moreInfo = $( "#more-info" );
+            // Bind the toggle link so that it toggles the more
+            // info box's visibility.
+            toggleLink.click(
+                function( event ){
+                    // Cancel default event (navigation).
+                    event.preventDefault();
+                    // Slide toggle the more info container.
+                    moreInfo.slideToggle( 500 );
+                }
+            );
+            // Bind to the close link. Since this will only be
+            // available when the more-info is open, we can
+            // leverage the toggle link.
+            closeLink.click(
+                function( event ){
+                    // Cancel default event (navigation).
+                    event.preventDefault();
+                    // Trigger the click event on the toggle link.
+                    // This will simulate the user clicking on the
+                    // toggle link directly.
+                    toggleLink.click();
+                }
+            );
+        });
+    </script>
+</head>
+<body>
+
+    <h1>
+        Simulating User-Generated Events In jQuery
+    </h1>
+
+    <p>
+        <a id="toggle" href="#">Click here</a> for more info.
+    </p>
+
+    <p id="more-info">
+        Wow! Did you see Joanna yesterday? Should it even be
+        allowed for someone to be looking that good? It seems
+        rather unfair to the rest of us who are trying to
+        concentrate.... <a id="close" href="#">Close</a>
+    </p>
+
+</body>
+</html>	

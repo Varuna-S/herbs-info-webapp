@@ -1,0 +1,208 @@
+      <!DOCTYPE html>
+      {% load static %}
+       
+      <html>
+      <head>
+      {% block content %}
+      <script>
+      var testdiv = $("#testdiv");
+      $("form").keydown( function(){
+          var ME = $(this);
+          //Manual Way
+          //var px = 6.5;
+          //var txtlength = ME.val().length;
+          //$(this).css({width: txtlength * px });
+          
+         testdiv.html( ME.val() + "--"); //-- for padding
+         var txtlength = testdiv.width();
+         $(this).css({width: txtlength  }); 
+      });
+      
+      </script>
+        <style>
+        body {font-family: Arial, Helvetica, sans-serif;}
+        body, html {
+          height: 100%;
+          margin: 0;
+        }
+
+        .bg {
+
+          background-image: url('{% static "p20.jpg"%}');
+
+          height: 100%;
+          border:0px solid;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+        
+        }
+
+        form{
+          border: 1px solid #000;
+
+          box-shadow: 10px 10px 5px #212121;
+
+		  padding:40px;
+          width:300px;
+          margin:auto;
+		  background:rgba(0,0,0,0.75);
+		  position: absolute;               /* 2 */
+   top: 50%;
+   left:50%;                         /* 3 */
+   transform: translate(-50%, -50%);
+        }
+
+        .body{font-family: Arial, Helvetica, sans-serif;
+          color: #009900
+        }
+        input[type=text], input[type=password],input[type=email] {
+          width:280px;
+          padding: 6px 20px;
+          margin: 8px 0;
+          display: inline-block;
+          border: 2px solid #ccc;
+          box-sizing: border-box;
+          border-radius: 6px
+        } 
+        .bodi{
+          color:#ffffff;
+        }
+
+        tag{
+          padding-left:0px;
+        }
+        tag1{
+          padding-left:55px;
+        }
+        tag2{
+          padding-left:22px;
+        }
+        
+        .tag3{
+          padding-top:2em;
+        }
+        .tag4{
+          padding-left:6em;
+        }
+        tag2{
+          padding-left:22px;
+        }
+        .paddingTop2 {
+          padding-top:30px;
+        }
+        .paddingTop1 {
+          padding-top:250px;
+        }
+        .paddingleft {
+          padding-left:25px;
+        }
+        tag5{
+          padding-left:1px;
+        }
+
+        button {
+          background-color: #B3B6B7;
+          color: black;
+          padding: 7px 20px;
+          margin: 0px ;
+          border: 1px solid #ccc;
+          cursor: pointer;
+          width: 150px;
+          border-radius: 6px;
+        }
+        .button1 {
+          background-color: #B3B6B7;
+          color: black;
+          padding: 7px 20px;
+          margin: 8px ;
+          border: 1px solid #ccc;
+          cursor: pointer;
+          width: 150px;
+          border-radius: 6px;
+        }
+
+
+        ul.topnav {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          background-color: #333;
+          height: 60px;
+        }
+
+        ul.topnav li {float: left;}
+
+        ul.topnav li a {
+          display: block; 
+          color: white;
+          text-align: center;
+          padding: 25px 20px;
+          text-decoration: none;
+        }
+        .content{
+
+          
+
+
+        }
+
+        ul.topnav li a:hover:not(.active) {background-color: #111;}
+
+        ul.topnav li a.active {background-color: #4CAF50;}
+
+        ul.topnav li.right {float: right;}
+
+        @media screen and (max-width: 900px){
+          ul.topnav li.right, 
+          ul.topnav li {float: none;}
+
+		
+		#testdiv{ display:none;}
+
+
+        </style>
+        <body>
+
+
+          <div class="bg">
+            <ul class="topnav">
+              <li><a  href="{% url 'home' %}">Home</a></li>
+              <li><a  href="{% url 'insertpage' %}">Insert</a></li>
+              <li><a  class="active">Edit Profile</a></li>
+            </ul>
+            <br>
+            <br>
+            <center> <h><font size="6" color="ffffff">Edit Profile</font></h> </center>
+
+            <div class='tag3'>
+              <div class="bodi">
+              <span>
+                <form action="" method='post'>
+                {% csrf_token %}                                                                           
+                      {% for field in form %}
+         <p>
+          {{ field.label_tag }}<br>
+          {{ field }}
+          {% if field.help_text %}
+          <small style="color: grey">{{ field.help_text|safe }}</small>
+          {% endif %}
+          {% for error in field.errors %}
+          <p style="color: red">{{ error }}</p>
+          {% endfor %}
+        </p>
+        {% endfor %}
+                 <input type="submit" value="Submit" style=" background-color: #B3B6B7;color: black;padding: 7px 20px;margin: 0px ;border: 1px solid #ccc;cursor: pointer;width: 110px;border-radius: 6px;">
+                      
+                    
+                  
+                </form> 
+                </span>
+              </div>
+            </div>
+          </div>
+        </body>
+        {% endblock %}
+        </html>
+

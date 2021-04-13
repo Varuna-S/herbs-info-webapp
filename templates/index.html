@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+{% load static %}
+		
+<html>
+<head>
+{% block content %}
+<script type="text/javascript">
+$(function() {
+    $('.open').click(function() {
+        $('body').fullscreen();
+        return false;
+    });
+    $('.close').click(function() {
+        $.fullscreen.exit();
+        return false;
+    });
+});
+</script>
+
+		</head>
+		<script>
+			window.moveTo(0,0);
+		
+		var modal = document.getElementById('id01');
+
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+			if (event.target == modal) {
+				modal.style.display = "none";
+			}
+		}
+
+		function toggleFullScreen() {
+			
+			elem=document.getElementById('whole');
+			if (elem.requestFullScreen) {
+ 				elem.requestFullScreen();
+			} else if (elem.mozRequestFullScreen) {
+				elem.mozRequestFullScreen();
+			} else if (elem.webkitRequestFullScreen) {
+				elem.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
+			} else if (elem.msRequestFullscreen) {
+				elem.msRequestFullscreen();
+			}
+		} 
+		function requestFullScreen(el) {
+            // Supports most browsers and their versions.
+            var requestMethod = el.requestFullScreen || el.webkitRequestFullScreen || el.mozRequestFullScreen || el.msRequestFullscreen;
+
+            if (requestMethod) { // Native full screen.
+            	requestMethod.call(el);
+            } 
+            return false;
+        }
+    </script>
+    <style>
+    body {font-family: Arial, Helvetica, sans-serif;}
+    body, html {
+    	height: 100%;
+    	margin: 0px;
+    }
+    .bg {
+
+    	background-image: url('{% static "p31.jpg"%}');
+    	height: 100%;
+    	border:3px solid #000;
+    	background-position: center;
+    	background-repeat: no-repeat;
+    	background-size: cover;
+    }
+
+}
+form{
+	border: 1px solid;
+	padding: 10px;
+	box-shadow: 8px 8px   #212121 ;
+	background-color:  #8bc34a;
+	width:400px;
+	height:300px;
+}
+
+.paddingTop {
+	padding-top:20px;
+}
+select{
+	width:300px;
+	height: 35px;
+}
+option{
+	width:250px;
+	height: 35px;
+}
+.dropbtn {
+	background-color: #CAC7C7;
+	color: black;
+	padding: 7px 20px;
+	margin: 8px ;
+	border: 1px solid #ccc;
+	cursor: pointer;
+	width: 150px;
+	border-radius: 6px;
+
+}
+body {font-family: Arial, Helvetica, sans-serif;
+	color: #ffffff}
+	.dropbtn:hover, .dropbtn:focus {
+		background-color: #3e8e41;
+	}
+	.body{font-family: Arial, Helvetica, sans-serif;
+		color: #009900
+	}
+	input[type=text], input[type=password] {
+		width:298px;
+		padding: 6px 20px;
+		margin: 8px 0;
+		display: inline-block;
+		border: 2px solid #ccc;
+		box-sizing: border-box;
+		border-radius: 6px
+	} 
+
+
+	#myInput {
+		border-box: box-sizing;
+		background-image: url('{% static "searchicon.png" %}');
+		background-position: 14px 12px;
+		background-repeat: no-repeat;
+		font-size: 16px;
+		padding: 10px 20px 12px 40px;
+		border: none;
+		border-bottom: 1px solid #ddd;
+	}
+
+	#myInput:focus {outline: 3px solid #ddd;}
+
+	.dropdown {
+		position: relative;
+		display: inline-block;
+	}
+	.paddingTop {
+		padding-top:10px;
+
+	}
+	.paddingTop1 {
+		padding-top:100px;
+
+	}
+	.paddingTop2 {
+		padding-top:50px;
+
+	}
+	.paddingLeft1 {
+		padding-left:10px;
+	}
+	.paddingLeft {
+		padding-left:8em;
+	}
+	.paddingInButton{
+		padding-left:0px;
+	}
+	.paddingleft2{
+		padding-left:5em;
+	}
+	form{
+		border: 1px solid #000;
+
+		
+
+		width:600px;
+		height:350px;
+
+		margin:auto;
+
+	}
+	.form1{
+		border: 1px solid #000;
+
+		box-shadow: 8px 8px   #212121;
+		background-color: rgba(0,0,0,0.70);
+		width:95%;
+		height:250px;
+		padding: 
+		margin:auto;
+	}
+
+	.dropdown-content {
+		display: none;
+		position: absolute;
+		background-color: #f6f6f6;
+		min-width: 230px;
+		overflow: auto;
+		border: 1px solid #ddd;
+		z-index: 1;
+	}
+
+	.dropdown-content a {
+		color: black;
+		padding: 12px 16px;
+		text-decoration: none;
+		display: block;
+	}
+
+	.dropdown a:hover {background-color: #ddd;}
+
+	.show {display: block;}
+	tag{
+		padding-left:85%
+	}
+	tag1{
+		padding-left:85%;
+	}
+	tag2{
+		padding-left:80%;
+	}
+	tag3{
+		padding-left:31em;
+	}
+	tag4{
+		padding-left:85%;
+	}
+	tag5{
+		padding-left:40px;
+	}
+	.tag6{
+		padding-top: 20px;
+		padding-left:40px;
+	}
+	.tag7{
+		padding-top: 40px;
+		padding-left:40px;
+		padding-right:40px;
+	}
+
+	h1{font-family: PlantsLetters;}
+
+	button {
+		background-color: #B3B6B7;
+		color: black;
+		padding: 7px 20px;
+		margin: 8px ;
+		border: 1px solid #ccc;
+		cursor: pointer;
+		width: 150px;
+		border-radius: 6px;
+	}
+	.button {
+		background-color: #B3B6B7;
+		color: black;
+		padding: 7px 20px;
+		margin: 0px ;
+		border: 1px solid #ccc;
+		cursor: pointer;
+		width: 2px;
+		border-radius: 6px;
+	}
+
+	ul.topnav {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+		background-color: #333;
+		height:60px; 
+	}
+
+	ul.topnav li {float: left;}
+
+	ul.topnav li a {
+		display: block; 
+		color: white;
+		text-align: center;
+		padding: 25px 20px;
+		text-decoration: none;
+			}
+	ul.topnav li p {
+		display: inline-block; 
+		color: white;
+		text-align: center;
+		padding: 0px 0px;
+		text-decoration: none;
+		margin-left:270px;
+		margin-right:0px; 
+	}
+
+	.modal {
+		display: none; /* Hidden by default */
+		position: fixed; /* Stay in place */
+		z-index: 1; /* Sit on top */
+		left: 0;
+		top: 0;
+		width: 100%; /* Full width */
+		height: 100%; /* Full height */	
+		overflow: auto; /* Enable scroll if needed */
+		background-color: rgb(0,0,0); /* Fallback color */
+		background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+		padding-top: 60px;
+	}
+	.modal-content {
+		background-color: #fefefe;
+		margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+		border: 1px solid #888;
+		width: 500px; /* Could be more or less, depending on screen size */
+		height:475px ;
+	}
+	.modal-content1 {
+		background-color: #fefefe;
+		margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+		border: 1px solid #888;
+		width: 750px; /* Could be more or less, depending on screen size */
+		height:310px ;
+	}
+	.animate {
+		-webkit-animation: animatezoom 0.6s;
+		animation: animatezoom 0.6s
+	}
+
+	@-webkit-keyframes animatezoom {
+		from {-webkit-transform: scale(0)} 
+		to {-webkit-transform: scale(1)}
+	}
+
+	@keyframes animatezoom {
+		from {transform: scale(0)} 
+		to {transform: scale(1)}
+	}
+	.close {
+		position: absolute;
+		right: 25px;
+		top: 0;
+		color: #000;
+		font-size: 35px;
+		font-weight: bold;
+	}
+
+	.close:hover,
+	.close:focus {
+		color: red;
+		cursor: pointer;
+	}
+
+	.imgcontainer {
+
+		margin: 20px 0 12px 0;
+		position: relative;
+	}
+
+	img.avatar {
+
+		border-radius: 50%;
+	}
+
+	.container {
+		padding: 10px;
+	}
+
+	span.psw {
+		float: right;
+		padding-top: 16px;
+	}
+
+	ul.topnav li a:hover:not(.active) {background-color: #111;}
+
+	ul.topnav li a.active {background-color: #4CAF50;}
+
+	ul.topnav li.right {float: right;}
+	ul.topnav li.center {float:center;}
+
+	@media screen and (max-width: 900px){
+		ul.topnav li.right, 
+		ul.topnav li {float: none;}
+		.cancelbtn {
+			width: auto;
+			padding: 5px 5px;
+			background-color: #f44336;
+		}
+
+
+	</style>
+
+
+	<body >
+
+		<div id="whole" class="bg">
+			
+
+		<ul class="topnav">	
+
+			<li><a class="active" href="#home">Home</a></li>
+
+			<li><a onclick="document.getElementById('id02').style.display='block'">About</a></li>
+			<li ><p><font size="6"> Herbal Medicinal Plants</font></p></li>
+
+			
+			<li class="right"> <a href="signup.html">Sign Up</a></li>
+			<li class="right" style="width: 150px;">  <a onclick="document.getElementById('id01').style.display='block'"><img src='{% static "login_avatar.png" %}' alt="login" height="17" width="17">&nbspSign In</a></li>
+
+		</ul>
+		<div id="id02" class="modal">
+			<form class="modal-content1 animate" action="" >
+				<div class="imgcontainer">
+
+					<span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+					<font color="#000000">
+						<br>
+						<center><font size="5">About</font></center></font>
+						<div class='tag6'>
+
+							<font color="#000000">
+
+								<p>Our goal is to develop quality web application that benefit all the users and hopefully the Herbal Medicinal Plants application is useful to all the users.</p>
+								<p>The Herbal Medicinal Plants provides you detailed information of herbal plants with medicinal qualities.</p>
+								<p>The application is designed in such a way where one can learn a lot about medicinal plants,their respective families.</p>
+								<p>The user will find detailed description and the uses of herbal medicinal plants.</p>
+							</font>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div id="id03" class="modal">
+				<form class="modal-content animate" action="" >
+					<div class="imgcontainer">
+						<span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">&times;</span>
+
+					</div>
+				</form>
+			</div>
+			<div id="id01" class="modal">
+				<form class="modal-content animate" action="" method='post' >
+					<div class="imgcontainer">
+						<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+						<center>
+							<img src='{% static "user.jpg" %}' alt="Avatar" class="avatar" width="150px" height="150px">
+						</center>
+						</div>
+						
+						{% csrf_token %}
+						{{form.as_p}}
+						
+						
+						
+							
+								
+								<input type="submit" value="Sign In" style=" background-color: #B3B6B7;
+  color: black;
+  padding: 7px 20px;
+  margin-left: 100px ;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  width: 110px;
+  border-radius: 6px;">
+									
+									<a href="{% url 'password_reset' %}">Forgot Password?</a>
+								</font>
+								
+
+							
+							
+						</form>
+					</div>
+						</form>
+					</div>
+				</body>
+				        {% endblock %}
+				
+
+				</html> 
+

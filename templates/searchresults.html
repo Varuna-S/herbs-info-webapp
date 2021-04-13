@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+<head>
+ {% block content %}
+<div class='paddingTop2'><div class='ribbon1'></div></div>
+</head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+body {font-family: Arial, Helvetica, sans-serif;}
+
+}
+
+#myInput {
+    border-box: box-sizing;
+    background-image: url('{% static "searchicon.png" %}');;
+    background-position: 14px 12px;
+    background-repeat: no-repeat;
+    font-size: 16px;
+    padding: 14px 20px 12px 45px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+}
+.ribbon1 {
+ font-size: 10px;
+ 
+
+ width: 100%;
+    
+ 
+ background: #689f38;
+ color: #fff;
+ text-align: center;
+ padding-top: 3em;
+ }
+</style>
+<body>
+{% for plantInfo in plantsInfo %}
+<a href="{% url 'plants' plant_name=plantInfo.slug oid=plantInfo.plant_id %}"> {% if  plantInfo.img %} <img src="{% static plantInfo.img.url %}"> {% else %} <img src="">{% endif %}</a><br>
+{{plantInfo.plant_name}}<br>
+{{plantInfo.description}}<br><br>
+{%endfor%}
+</body>
+{% endblock %}
+</html>

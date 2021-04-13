@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+<head>
+ {% block content %}
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  body, html {
+    height: 100%;
+    margin: 0;
+  }
+
+  .bg {
+
+    background-image: url('{% static "p36.jpg" %}');
+
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-attachment: 
+  }
+  body {font-family: Arial, Helvetica, sans-serif;}
+  .collapsible {
+    background-color: #909497;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 70%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+  }
+  .ribbon1 {
+   font-size: 10px;
+   width: 100%;
+   background: #689f38   ;
+   color: #fff;
+   text-align: center;
+   padding-top: 3em;
+ }
+ .active, .collapsible:hover {
+  background-color: #555;
+}
+
+button[type=type1]{
+  background-color: #B3B6B7;
+  color: black;
+  padding: 7px 20px;
+  margin: 8px ;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  width: 100px;
+  border-radius: 6px;
+
+}                    
+
+button[type=type2]{
+  background-color: #B3B6B7;
+  color: black;
+  padding: 7px 20px;
+  margin: 8px ;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  width: 100px;
+  border-radius: 6px;
+
+
+}                    
+.content {
+  padding: 0px 0px;
+  display: none;
+  overflow: hidden;
+  background-color: #ffffff;
+  width: 70%;
+}
+form{
+  border: 1px solid;
+  padding: 10px;
+  box-shadow: 8px 8px   #212121 ;
+  background-color:  #99ff66;
+  width:400px;
+  height:300px;
+}
+
+.paddingLeft {
+  padding-left:25%;
+}
+
+.paddingTop2 {
+  padding-top:9em;
+}
+.paddingTop3 {
+  padding-top:30px;
+}
+.paddingRight1 {
+  padding-left:75%;
+}
+
+.ex1 {
+  margin-left:15px;
+}
+.ex2 {
+  margin-left:15px;
+}
+.ex3 {
+  margin-left:15px;
+}
+ul.topnav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+ul.topnav li {float: left;}
+
+ul.topnav li a {
+  display: block; 
+  color: white;
+  text-align: center;
+  padding: 18px 25px;
+  text-decoration: none;
+}
+ul.topnav li a:hover:not(.active) {background-color: #111;}
+
+ul.topnav li a.active {background-color: #4CAF50;}
+
+ul.topnav li.right {float: right;}
+
+@media screen and (max-width: 900px){
+  ul.topnav li.right, 
+  ul.topnav li {float: none;}
+  .cancelbtn {
+    width: auto;
+    padding: 5px 5px;
+    background-color: #f44336;
+  </style>
+</head>
+<body>
+ <div class="bg">
+  <ul class="topnav">
+    <li > <a href="home.html">Home</a></li>
+    <li class="right"> <a href="results.html">Delete</a></li>
+
+    <li class="right">  <a href="{% url 'modifypage' oid=plantInfo.plant_id %}">Modify</a></li>
+  </ul>
+ {% if  plantInfo.img %} <img src="{% static plantInfo.img.url %}"> {% else %} <img src="">{% endif %}<br>
+{{plantInfo.plant_name}}<br>
+{{plantInfo.description}}<br><br>
+  
+</body>
+{% endblock %}
+</html>
+
