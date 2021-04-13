@@ -1,2 +1,2 @@
-# cinepo
-PHP MVC web app
+# herbal medicinal plants 
+Python DJANGO framework MVT web application 
